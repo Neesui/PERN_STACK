@@ -58,8 +58,17 @@ export const updateUser = async (req, res, next) => {
     const { id } = req.params;
     const { name, email, age, role, salary } = req.body;
 
+    if (!id) {
+      return res.status(400).json({
+        success: false,
+        message: "User ID is required"
+      });
+    }
+
     const existingUser = await prisma.user.findUnique({
-      where: { id: parseInt(id) }
+      where: { 
+        id: Number(id)  // Ensure id is converted to number
+      }
     });
 
     if (!existingUser) {
@@ -70,13 +79,15 @@ export const updateUser = async (req, res, next) => {
     }
 
     const updatedUser = await prisma.user.update({
-      where: { id: parseInt(id) },
+      where: { 
+        id: Number(id)  // Ensure id is converted to number
+      },
       data: {
         name,
         email,
-        age,
+        age: parseInt(age),  // Convert age to integer
         role,
-        salary
+        salary 
       },
     });
 
@@ -94,13 +105,21 @@ export const updateUser = async (req, res, next) => {
   }
 };
 
-
 export const deleteUser = async (req, res, next) => {
   try {
     const { id } = req.params;
 
+    if (!id) {
+      return res.status(400).json({
+        success: false,
+        message: "User ID is required"
+      });
+    }
+
     const existingUser = await prisma.user.findUnique({
-      where: { id: parseInt(id) }
+      where: { 
+        id: Number(id)  // Ensure id is converted to number
+      }
     });
 
     if (!existingUser) {
@@ -111,7 +130,9 @@ export const deleteUser = async (req, res, next) => {
     }
 
     await prisma.user.delete({
-      where: { id: parseInt(id) }
+      where: { 
+        id: Number(id)  // Ensure id is converted to number
+      }
     });
 
     res.status(200).json({
