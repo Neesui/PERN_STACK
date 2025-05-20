@@ -1,2 +1,18 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+body {
+min-height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ font-family: "poppins", serif;
+}
+.icon{
+    fill: hsl(233, 98%, 24%);
+    transition: fill 0.2s ease;
+}
+.icon:hover{
+    fill: black;
+    cursor: pointer;
+}
