@@ -39,6 +39,12 @@ app.use(morgan("dev"));
 // routes
 app.use("/api/user", userRoute);
 
+app.use(function(req,res){
+  res.status(404).json({
+    success: false,
+    message: "Route not found",
+  });
+});
 
 const __dirname = path.resolve(); // set __dirname to current directory
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));

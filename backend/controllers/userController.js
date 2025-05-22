@@ -3,6 +3,20 @@ import prisma from "../config/db.config.js";
 export const createUser = async (req, res, next) => {
   try {
     const { name, email, age, role, salary } = req.body;
+    // Check if email already exists
+    const existingUser = await prisma.user.findUnique({
+      where: {
+        email: email
+      }
+    });
+
+    if (existingUser) {
+      return res.status(400).json({
+        success: false,
+        message: "Email already exists",
+      });
+    }
+
     const user = await prisma.user.create({
       data: {
         name,
