@@ -18,11 +18,11 @@ const app = express();
 app.use(morgan("dev"));
 
 // cors
+const corsOptions = {
+  origin: "*"
+};
 app.use(
-  cors({
-    origin: "http://localhost:3000",
-    credentials: true,
-  })
+  cors(corsOptions)
 );
 
 // Cookie parser middleware

@@ -120,6 +120,7 @@ export const updateUser = async (req, res, next) => {
 };
 
 export const deleteUser = async (req, res, next) => {
+  
   try {
     const { id } = req.params;
 
