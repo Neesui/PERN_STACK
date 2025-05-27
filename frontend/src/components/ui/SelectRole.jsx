@@ -1,15 +1,19 @@
 import React from 'react'
 import { Portal, Select, createListCollection } from "@chakra-ui/react"
 
-const SelectRole = () => {
+const SelectRole = ({setInfo}) => {
   return (
     <>
-    <Select.Root collection={frameworks} size="sm" width="320px">
+    <Select.Root 
+    collection={roles} 
+    size="sm" 
+    width="320px" 
+    onChange={(e)=>setInfo((prev)=>({...prev, role: e.target.value}))}>
       <Select.HiddenSelect />
-      <Select.Label>Select framework</Select.Label>
+      <Select.Label>Select roles</Select.Label>
       <Select.Control>
         <Select.Trigger>
-          <Select.ValueText placeholder="Select framework" />
+          <Select.ValueText placeholder="Select Role" />
         </Select.Trigger>
         <Select.IndicatorGroup>
           <Select.Indicator />
@@ -18,9 +22,9 @@ const SelectRole = () => {
       <Portal>
         <Select.Positioner>
           <Select.Content className='select'>
-            {frameworks.items.map((framework) => (
-              <Select.Item item={framework} key={framework.value}>
-                {framework.label}
+            {roles.items.map((role) => (
+              <Select.Item item={role} key={role.value}>
+                {role.label}
                 <Select.ItemIndicator />
               </Select.Item>
             ))}
@@ -34,11 +38,11 @@ const SelectRole = () => {
 
 export default SelectRole
 
-const frameworks = createListCollection({
+const roles = createListCollection({
     items: [
-      { label: "React.js", value: "react" },
-      { label: "Vue.js", value: "vue" },
-      { label: "Angular", value: "angular" },
-      { label: "Svelte", value: "svelte" },
+      { label: "HR", value: "HR" },
+      { label: "Developer", value: "Developer" },
+      { label: "Manager", value: "Manager" },
+      { label: "Intern", value: "Intern" },
     ],
   })
