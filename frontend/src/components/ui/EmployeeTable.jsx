@@ -6,6 +6,8 @@ import { useMutation } from '@tanstack/react-query';
 import { baseUrl } from '../../../constants/global-variable';
 import  toast  from 'react-hot-toast';
 import { queryClient } from '../../../utils/queryClient.js';
+import { Dialog } from '@chakra-ui/react';
+import InputUser from './InputUser.jsx';
 const EmployeeTable = ({ data }) => {
 
   if (!data.length) {
@@ -58,7 +60,11 @@ const EmployeeTable = ({ data }) => {
               <Table.Cell>{item.salary}</Table.Cell>
               <Table.Cell>
                 <HStack gap="3">
+                <InputUser data={item} type='Update'>
+                <Dialog.Trigger asChild>
                   <FaEdit size={20} className='icon' />
+                </Dialog.Trigger>
+              </InputUser>
                   <MdDelete 
                   size={20} 
                   className='icon' 

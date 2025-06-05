@@ -41,8 +41,8 @@ export default SelectRole
 const roles = createListCollection({
     items: [
       { label: "HR", value: "HR" },
-      { label: "Developer", value: "Developer" },
-      { label: "Manager", value: "Manager" },
-      { label: "Intern", value: "Intern" },
+      { label: "Developer", value: "DEVELOPER" },
+      { label: "Manager", value: "MANAGER" },
+      { label: "Intern", value: "INTERN" },
     ],
   })

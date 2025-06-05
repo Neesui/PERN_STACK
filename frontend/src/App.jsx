@@ -4,6 +4,9 @@ import { VStack } from '@chakra-ui/react'
 import { useQuery } from '@tanstack/react-query'
 import { baseUrl } from '../constants/global-variable.js'
 import InputUser from './components/ui/InputUser.jsx'
+import { Button, Dialog} from '@chakra-ui/react'
+
+
 const App = () => {
   async function getAllUsers() {
     const res = await fetch(baseUrl);
@@ -31,7 +34,11 @@ const App = () => {
 
   return (
     <VStack gap={6} align={'flex-start'}>
-      <InputUser />
+      <InputUser>
+      <Dialog.Trigger asChild>
+        <Button variant="outline">Add User </Button>
+      </Dialog.Trigger>
+      </InputUser>
       <EmployeeTable data={data?.data} />  {/* Pass the data prop */}
     </VStack>
   )
