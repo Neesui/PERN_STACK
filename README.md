@@ -16,3 +16,11 @@ View all records
 Edit existing records
 
 Delete records
+🙋‍♀️ What I Learned
+How the PERN stack works together
+
+How to perform CRUD operations
+
+How to connect React frontend with Express API
+
+Basic REST API development
