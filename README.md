@@ -1,26 +1,18 @@
-This is a simple CRUD (Create, Read, Update, Delete) application built using the PERN stack:
+This is a simple **CRUD (Create, Read, Update, Delete)** app using the **PERN stack**:
+- **PostgreSQL** – database
+- **Express.js** – backend
+- **React.js** – frontend
+- **Node.js** – server environment
 
-PostgreSQL – for the database
-
-Express.js – backend framework
-
-React.js – frontend library
-
-Node.js – runtime environment
 
 ✨ Features
-Add new records
+- Create new records
+- Read/display records
+- Update existing records
+- Delete records
 
-View all records
-
-Edit existing records
-
-Delete records
 🙋‍♀️ What I Learned
-How the PERN stack works together
-
-How to perform CRUD operations
-
-How to connect React frontend with Express API
-
-Basic REST API development
+- Working with the full PERN stack
+- Implementing RESTful APIs
+- React state management with forms
+- Connecting frontend to backend with Axios
